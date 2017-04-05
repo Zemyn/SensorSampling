@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SensorSampling</string>
+    <string name="title_activity_acc_sensor">AccSensorActivity</string>
+    <string name="title_activity_google_map">Map</string>
+    <string name="title_activity_chart_test">ChartTestActivity</string>
+    <string name="title_activity_chart_sensor">ChartSensorActivity</string>
+    <string name="title_activity_megnetic_sensor">MegneticSensor</string>
+    <string name="title_activity_step">StepActivity</string>
+</resources>

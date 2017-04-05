@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="emblab.colostate.sensorsampling.activity.MainActivity">
+
+    <Button
+        android:id="@+id/btn_to_acc"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_margin="5dp"
+        android:text="test the acc sensor" />
+
+    <Button
+        android:layout_below="@+id/btn_to_acc"
+        android:id="@+id/btn_to_vector"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_margin="5dp"
+        android:text="vertical vector" />
+
+    <Button
+        android:layout_below="@+id/btn_to_vector"
+        android:id="@+id/btn_to_magnet"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_margin="5dp"
+        android:text="magnet sensor" />
+
+    <Button
+        android:layout_below="@+id/btn_to_magnet"
+        android:id="@+id/btn_to_step_detect"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_margin="5dp"
+        android:text="step detect" />
+</RelativeLayout>

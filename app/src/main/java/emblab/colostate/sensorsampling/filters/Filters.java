@@ -84,18 +84,21 @@ public class Filters {
             return false;
         }
     }
+
+
     /**
      * Implement the IMF algorithm
      */
-
     static public void IMF(TriDVector[] megdata, TriDVector g_vector){ //here the vector should be on the horizontal plane
-        TriDVector[] choosed_data = vectorSelection(megdata);
+        TriDVector[] choosed_vectors = vectorSelection(megdata);
         double threshold = 10.0;
-        double r_g = choosed_data[0].getMagnitude();
+        double r_g = choosed_vectors[0].getMagnitude();
         while(r_g>threshold){
             for(int theta_G=0;theta_G<=360;theta_G++){
-                double[][] m = TriDVector.rotateMatrix(g_vector,theta_G);
-                //TODO TriDVector.getRotatedVector(m,choosed_data);
+                double[][] m = TriDVector.buildRotateMatrix(g_vector,theta_G);
+                //Here use the fist selected vector as the basic vector
+                TriDVector testVector = TriDVector.getRotatedVector(m,choosed_vectors[0]);
+                //TODO
             }
         }
     }

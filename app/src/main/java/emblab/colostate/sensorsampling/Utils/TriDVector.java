@@ -40,7 +40,7 @@ public class TriDVector {
      * M(v,θ)= [(1-cosθ)yx+(sinθ)z  cosθ+(1-cosθ)y^2    (1-cosθ)yz+(sinθ)x  ]
      *         [(1-cosθ)zx+(sinθ)y  (1-cosθ)zy+(sinθ)x  cosθ+(1-cosθ)z^2    ]
      */
-    static public double[][] rotateMatrix(TriDVector v, int theta){
+    static public double[][] buildRotateMatrix(TriDVector v, int theta){
         double[][] M = new double[3][3];
         M[0][0] = Math.cos(theta)+(1-Math.cos(theta))*v.x*v.x;
         M[0][1] = (1-Math.cos(theta))*v.y*v.x+Math.sin(theta)*v.z;
@@ -62,5 +62,12 @@ public class TriDVector {
         double y = m[1][0]*v.x+m[1][1]*v.y+m[1][2]*v.z;
         double z = m[2][0]*v.x+m[2][1]*v.y+m[2][2]*v.z;
         return new TriDVector((float)x,(float)y,(float)z);
+    }
+
+    public void nomalized(){
+        double magnitude = this.getMagnitude();
+        this.x = (float)(this.x/magnitude);
+        this.y = (float)(this.y/magnitude);
+        this.z = (float)(this.z/magnitude);
     }
 }

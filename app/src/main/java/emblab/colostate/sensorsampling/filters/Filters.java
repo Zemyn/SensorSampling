@@ -98,7 +98,8 @@ public class Filters {
                 double[][] m = TriDVector.buildRotateMatrix(g_vector,theta_G);
                 //Here use the fist selected vector as the basic vector
                 TriDVector testVector = TriDVector.getRotatedVector(m,choosed_vectors[0]);
-                //TODO
+                testVector.nomalized();
+                testVector.multiply(r_g);
             }
         }
     }

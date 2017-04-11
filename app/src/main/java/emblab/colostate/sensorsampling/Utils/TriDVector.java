@@ -70,4 +70,10 @@ public class TriDVector {
         this.y = (float)(this.y/magnitude);
         this.z = (float)(this.z/magnitude);
     }
+
+    public void multiply(double m){
+        this.x = (float)(this.x * m);
+        this.y = (float)(this.y * m);
+        this.z = (float)(this.z * m);
+    }
 }

@@ -89,7 +89,7 @@ public class Filters {
     /**
      * Implement the IMF algorithm
      */
-    static public void IMF(TriDVector[] megdata, TriDVector g_vector){ //here the vector should be on the horizontal plane
+    static public void IMF(TriDVector[] megdata, TriDVector g_vector,float distance){ //here the vector should be on the horizontal plane
         TriDVector[] choosed_vectors = vectorSelection(megdata);
         double threshold = 10.0;
         double r_g = choosed_vectors[0].getMagnitude();
@@ -97,12 +97,23 @@ public class Filters {
             for(int theta_G=0;theta_G<=360;theta_G++){
                 double[][] m = TriDVector.buildRotateMatrix(g_vector,theta_G);
                 //Here use the fist selected vector as the basic vector
-                TriDVector testVector = TriDVector.getRotatedVector(m,choosed_vectors[0]);
-                testVector.nomalized();
-                testVector.multiply(r_g);
+                TriDVector GVector = TriDVector.getRotatedVector(m,choosed_vectors[0]);
+                //create the vector with angle theta_G and magnitude
+                GVector.nomalized();
+                GVector.multiply(r_g);
+                // get the remaining vectors
+                TriDVector I1 = choosed_vectors[0].minus(GVector);
+                TriDVector I2 = choosed_vectors[1].minus(GVector);
+                TriDVector I3 = choosed_vectors[2].minus(GVector);
+
+
             }
         }
     }
 
+    static private void getIntersections(TriDVector[] vectors, float distance, TriDVector head_vector){
+        TriDVector delta = head_vector.multiply(distance);
+        //TODO vectors[0].
+    }
 
 }

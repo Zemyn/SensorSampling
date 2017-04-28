@@ -36,6 +36,9 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
     private float currentDegree = 0f;
     private ImageView image;
 
+    private TextView txv_mag_field_reading;
+    private TextView txv_orientation_reading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +60,9 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         sm = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         megSensor = sm.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         gSensor = sm.getDefaultSensor(Sensor.TYPE_GRAVITY);
+
+        txv_mag_field_reading = (TextView)findViewById(R.id.txv_meg_read);
+        txv_orientation_reading = (TextView)findViewById(R.id.txv_orientation_read);
     }
 
     @Override
@@ -73,12 +79,20 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         }
     }
 
+    public void stopSensing(View view){
+        sm.unregisterListener(this);
+    }
+
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {}
 
     private void getOrientation() {
         //the geomag reading may need to be calibrated
-        sm.getRotationMatrix(mRotationMatrix,mInclineMatrix,gSensorReading,geomagReading);
+
+        float[] testReading = new float[3];
+        testReading = geomagReading;
+
+        sm.getRotationMatrix(mRotationMatrix,mInclineMatrix,gSensorReading,testReading/*geomagReading*/);
         sm.getOrientation(mRotationMatrix,mOrientation);
 
         float degree = (float)Math.toDegrees(mOrientation[0]);
@@ -92,6 +106,9 @@ public class MagneticActivity extends AppCompatActivity implements SensorEventLi
         // start the animation
         image.startAnimation(ra);
         currentDegree = -degree;
+
+        txv_mag_field_reading.setText("x:"+testReading[0]+" y:"+testReading[1]+" z:"+testReading[2]);
+        txv_orientation_reading.setText("-z:"+(float)Math.toDegrees(mOrientation[0])+" x:"+(float)Math.toDegrees(mOrientation[1])+" y:"+(float)Math.toDegrees(mOrientation[2]));
     }
 
     @Override

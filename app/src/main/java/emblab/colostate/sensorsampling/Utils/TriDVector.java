@@ -71,9 +71,17 @@ public class TriDVector {
         this.z = (float)(this.z/magnitude);
     }
 
-    public void multiply(double m){
-        this.x = (float)(this.x * m);
-        this.y = (float)(this.y * m);
-        this.z = (float)(this.z * m);
+    public TriDVector multiply(double m){
+        float x = (float)(this.x * m);
+        float y = (float)(this.y * m);
+        float z = (float)(this.z * m);
+        return new TriDVector(x,y,z);
+    }
+
+    public TriDVector minus(TriDVector vector){
+        float x = this.x - vector.x;
+        float y = this.y - vector.y;
+        float z = this.z - vector.z;
+        return new TriDVector(x,y,z);
     }
 }

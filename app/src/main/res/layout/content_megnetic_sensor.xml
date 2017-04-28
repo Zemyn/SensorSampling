@@ -19,4 +19,24 @@
         android:layout_height="wrap_content"
         android:src="@drawable/znz" />
 
+    <TextView
+        android:id="@+id/txv_meg_read"
+        android:layout_below="@+id/img_compass"
+        android:layout_width="match_parent"
+        android:layout_height="64dp" />
+
+    <TextView
+        android:id="@+id/txv_orientation_read"
+        android:layout_below="@+id/txv_meg_read"
+        android:layout_width="match_parent"
+        android:layout_height="64dp" />
+
+    <Button
+        android:id="@+id/btn_meg_stop"
+        android:layout_below="@+id/txv_orientation_read"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:onClick="stopSensing"
+        android:text="Stop"/>
+
 </RelativeLayout>

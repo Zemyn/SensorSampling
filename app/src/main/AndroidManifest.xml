@@ -9,6 +9,8 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -49,9 +51,6 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".activity.GoogleMapActivity"
-            android:label="@string/title_activity_google_map" />
-        <activity
             android:name=".activity.ChartSensorActivity"
             android:label="@string/title_activity_chart_sensor"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -63,7 +62,8 @@
         <activity
             android:name=".activity.StepActivity"
             android:label="@string/title_activity_step"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.DataCollectionActivity"></activity>
     </application>
 
 </manifest>

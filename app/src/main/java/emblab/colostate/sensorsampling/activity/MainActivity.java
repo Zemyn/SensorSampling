@@ -9,7 +9,7 @@ import android.widget.Button;
 import emblab.colostate.sensorsampling.R;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnToAcc, btnToStep ,btnToGoogleMap,btnToStepDec;
+    Button btnToAcc, btnToStep ,btnToGoogleMap,btnToStepDec,btnToDataCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, StepDetectActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnToDataCollection = (Button) findViewById(R.id.btn_to_data_collection);
+        btnToDataCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, DataCollectionActivity.class);
                 startActivity(intent);
             }
         });

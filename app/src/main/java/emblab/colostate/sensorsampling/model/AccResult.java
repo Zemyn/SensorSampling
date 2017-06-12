@@ -11,20 +11,24 @@ public class AccResult {
     /**
      * @uml.property name="id"
      */
-    protected int id;
+    public long id;
+
+    public long timeStamp;
+    public String type;
 
     // Location
-    protected float x;
-    protected float y;
-    protected float z;
+    public float x;
+    public float y;
+    public float z;
+
 
     public AccResult(){}
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

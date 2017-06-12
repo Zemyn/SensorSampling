@@ -14,29 +14,19 @@
     tools:showIn="@layout/activity_magnetic_sensor">
 
     <ImageView
-        android:id="@+id/img_compass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/znz" />
+        android:id="@+id/main_image_dial"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/dial" />
 
-    <TextView
-        android:id="@+id/txv_meg_read"
-        android:layout_below="@+id/img_compass"
-        android:layout_width="match_parent"
-        android:layout_height="64dp" />
+    <ImageView
+        android:id="@+id/main_image_hands"
+        android:layout_width="20dp"
+        android:layout_height="240dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/hands" />
 
-    <TextView
-        android:id="@+id/txv_orientation_read"
-        android:layout_below="@+id/txv_meg_read"
-        android:layout_width="match_parent"
-        android:layout_height="64dp" />
-
-    <Button
-        android:id="@+id/btn_meg_stop"
-        android:layout_below="@+id/txv_orientation_read"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:onClick="stopSensing"
-        android:text="Stop"/>
 
 </RelativeLayout>

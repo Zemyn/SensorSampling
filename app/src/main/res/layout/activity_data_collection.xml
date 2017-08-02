@@ -24,12 +24,31 @@
         android:text="stop collect"
         android:onClick="stopClick"/>
 
-    <TextView
-        android:id="@+id/txv_show_sensor_data"
+    <Button
+        android:id="@+id/btn_show_data"
         android:layout_below="@+id/btn_stop_collection"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:text="please start"
-        />
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:text="show data"
+        android:onClick="showDataClick"/>
+
+    <Button
+        android:id="@+id/btn_drop_table"
+        android:layout_below="@+id/btn_show_data"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:text="drop table"
+        android:onClick="dropTable"/>
+
+    <TextView
+        android:id="@+id/txv_show_sensor_data"
+        android:layout_below="@+id/btn_drop_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="please start" />
 
 </RelativeLayout>
